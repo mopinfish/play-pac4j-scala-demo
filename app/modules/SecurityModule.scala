@@ -60,7 +60,7 @@ class SecurityModule(environment: Environment, configuration: Configuration) ext
     val oidcConfiguration = new OidcConfiguration()
     oidcConfiguration.setClientId(sys.env("OIDC_ID"))
     oidcConfiguration.setSecret(sys.env("OIDC_SECRET"))
-    oidcConfiguration.setDiscoveryURI("OIDC_DISCOVERY_URL")
+    oidcConfiguration.setDiscoveryURI(sys.env("OIDC_DISCOVERY_URL"))
 //    oidcConfiguration.addCustomParam("prompt", "consent")
     val oidcClient = new OidcClient[OidcProfile](oidcConfiguration)
     oidcClient.addAuthorizationGenerator(new RoleAdminAuthGenerator)
